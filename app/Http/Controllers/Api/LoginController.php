@@ -11,10 +11,11 @@ class LoginController extends Controller
 {
     public function login(AuthenticationRequest $request)
     {
-        $credentials =[
+        $credentials = [
             'email' => $request->email,
-            'password' => $request->password
+            'password' => $request->password,
         ];
+
         if(Auth::attempt($credentials, true)){
             $user = Auth::user();
 
@@ -22,20 +23,19 @@ class LoginController extends Controller
                 'status_code' => 200,
                 'status' => 'success',
                 'data' => [
-                    'token' => $user->createToken('MyApp')->plainTextToken,
-                    'name' => $user->name,
+                    'token' => $user->createToken('Mokammel')->plainTextToken,
+                    'name' => $user->name
                 ],
-                'message' => 'User logged in successfully'
-
+                'message' => 'Login Successfully!'
             ];
-            return response()->json($response, 200);
 
+            return response()->json($response, 200);
         }else{
             $response = [
                 'status_code' => 401,
                 'status' => 'error',
                 'data' => null,
-                'message' => 'Invalid credentials'
+                'message' => 'Invalid credentials!'
             ];
             return response()->json($response, 401);
         }
