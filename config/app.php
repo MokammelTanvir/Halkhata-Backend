@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
+use App\Providers\RepositoryServiceProvider;
 
 return [
 
@@ -159,6 +160,13 @@ return [
         /*
          * Package Service Providers...
          */
+
+
+         /*
+         * Custom Service Providers...
+         */
+            RepositoryServiceProvider::class,
+
 
         /*
          * Application Service Providers...
