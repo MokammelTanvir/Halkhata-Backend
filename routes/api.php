@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\BrandController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\SupplierController;
 use App\Http\Controllers\Api\SystemSettingController;
 
 /*
@@ -37,6 +38,11 @@ Route::apiResource('/system-setting', SystemSettingController::class)->only(['in
     Route::get('/all-brands', [BrandController::class, 'allBrands']);
     Route::get('/brands/status/{id}', [BrandController::class, 'status']);
     Route::apiResource('/brands', BrandController::class);
+
+    /* Supplier routes */
+    Route::get('/all-suppliers', [SupplierController::class, 'allSupplier']);
+    Route::get('/suppliers/status/{id}', [SupplierController::class, 'status']);
+    Route::apiResource('/suppliers', SupplierController::class);
 
 });
 

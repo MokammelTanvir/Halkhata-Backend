@@ -13,6 +13,11 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
+    public const ADMIN = 1;
+    public const STAFF = 2;
+    public const CUSTOMER = 3;
+    public const SUPPLIER = 4;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -49,4 +54,21 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function scopeSupplier()
+    {
+        return $this->where(['role_id' => User::SUPPLIER]);
+    }
+    public function scopeCustomer()
+    {
+        return $this->where(['role_id' => User::CUSTOMER]);
+    }
+    public function scopeAdmin()
+    {
+        return $this->where(['role_id' => User::ADMIN]);
+    }
+    public function scopeStaff()
+    {
+        return $this->where(['role_id' => User::STAFF]);
+    }
 }
