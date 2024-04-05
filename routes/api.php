@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\BrandController;
 use App\Http\Controllers\Api\LoginController;
+use App\Http\Controllers\Api\StaffController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\SupplierController;
@@ -49,6 +50,11 @@ Route::apiResource('/system-setting', SystemSettingController::class)->only(['in
     Route::get('/all-customers', [CustomerController::class, 'allCustomers']);
     Route::get('/customers/status/{id}', [CustomerController::class, 'status']);
     Route::apiResource('/customers', CustomerController::class);
+
+    /* Staff routes */
+    Route::get('/all-staffs', [StaffController::class, 'allStaff']);
+    Route::get('/staffs/status/{id}', [StaffController::class, 'status']);
+    Route::apiResource('/staffs', StaffController::class);
 
 });
 
