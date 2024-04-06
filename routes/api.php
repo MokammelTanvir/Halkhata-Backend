@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\BrandController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\StaffController;
+use App\Http\Controllers\Api\SalaryController;
 use App\Http\Controllers\Api\ExpenseController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\CategoryController;
@@ -67,6 +68,9 @@ Route::apiResource('/system-setting', SystemSettingController::class)->only(['in
     Route::get('/all-expenses', [ExpenseController::class, 'allExpense']);
     Route::get('/all-expenses-category', [ExpenseController::class, 'allExpenseCategory']);
     Route::apiResource('/expenses', ExpenseController::class)->except(['destroy']);
+
+    /* salary routes */
+    Route::apiResource('/salaries', SalaryController::class);
 
 });
 
