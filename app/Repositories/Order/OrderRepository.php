@@ -3,7 +3,6 @@
 namespace App\Repositories\Order;
 
 use App\Models\Cart;
-use Illuminate\Support\Str;
 use App\Models\Order;
 use App\Models\OrderDetails;
 use App\Models\Product;
@@ -73,8 +72,8 @@ class OrderRepository implements OrderInterface
     {
         $data = Order::latest('id')
         ->with([
-            'order_details',
-            'customer'
+           'order_details',
+           'customer'
         ])
         ->get();
         return $data;
