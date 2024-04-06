@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\BrandController;
 use App\Http\Controllers\Api\LoginController;
+use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\StaffController;
 use App\Http\Controllers\Api\SalaryController;
 use App\Http\Controllers\Api\ExpenseController;
@@ -79,6 +80,10 @@ Route::apiResource('/system-setting', SystemSettingController::class)->only(['in
     Route::get('/remove-from-cart/{id}', [CartController::class, 'removeFromCart']);
     Route::get('/increase-item-qty/{id}', [CartController::class, 'incItemQty']);
     Route::get('/decrease-item-qty/{id}', [CartController::class, 'decItemQty']);
+
+    /* Order Routes */
+    Route::get('/all-orders', [OrderController::class, 'allOrders']);
+    Route::apiResource('/orders', OrderController::class)->only(['index', 'store', 'show']);
 
 });
 
