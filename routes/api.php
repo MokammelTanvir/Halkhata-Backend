@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\BrandController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\StaffController;
@@ -71,6 +72,13 @@ Route::apiResource('/system-setting', SystemSettingController::class)->only(['in
 
     /* salary routes */
     Route::apiResource('/salaries', SalaryController::class);
+
+    /* Cart Routes */
+    Route::get('/carts', [CartController::class, 'getCartItems']);
+    Route::post('/add-to-cart', [CartController::class, 'addToCart']);
+    Route::get('/remove-from-cart/{id}', [CartController::class, 'removeFromCart']);
+    Route::get('/increase-item-qty/{id}', [CartController::class, 'incItemQty']);
+    Route::get('/decrease-item-qty/{id}', [CartController::class, 'decItemQty']);
 
 });
 
