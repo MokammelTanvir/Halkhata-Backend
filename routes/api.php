@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\BrandController;
 use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\StaffController;
+use App\Http\Controllers\Api\ExpenseController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\CustomerController;
@@ -61,6 +62,11 @@ Route::apiResource('/system-setting', SystemSettingController::class)->only(['in
     Route::get('/all-products', [ProductController::class, 'allProduct']);
     Route::get('/products/status/{id}', [ProductController::class, 'status']);
     Route::apiResource('/products', ProductController::class);
+
+    /* expense routes */
+    Route::get('/all-expenses', [ExpenseController::class, 'allExpense']);
+    Route::get('/all-expenses-category', [ExpenseController::class, 'allExpenseCategory']);
+    Route::apiResource('/expenses', ExpenseController::class)->except(['destroy']);
 
 });
 

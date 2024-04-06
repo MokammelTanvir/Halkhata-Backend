@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             CustomerSeeder::class,
             StaffSeeder::class,
             ProductSeeder::class,
+            ExpenseCategorySeeder::class,
         ]);
     }
 }

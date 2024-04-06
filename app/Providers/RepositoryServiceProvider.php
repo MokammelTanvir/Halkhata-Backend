@@ -14,6 +14,8 @@ use App\Repositories\Customer\CustomerInterface;
 use App\Repositories\Supplier\SupplierInterface;
 use App\Repositories\Category\CategoryRepository;
 use App\Repositories\Customer\CustomerRepository;
+use App\Repositories\Expense\ExpenseInterface;
+use App\Repositories\Expense\ExpenseRepository;
 use App\Repositories\Supplier\SupplierRepository;
 use App\Repositories\SystemSetting\SystemSettingInterface;
 use App\Repositories\SystemSetting\SystemSettingRepository;
@@ -58,6 +60,11 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             ProductInterface::class,
             ProductRepository::class
+        );
+
+        $this->app->bind(
+            ExpenseInterface::class,
+            ExpenseRepository::class
         );
     }
 
